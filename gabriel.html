@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Gabriel Linn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- VARIÁVEIS DE COR (Edite aqui para mudar o tema) --- */
+        :root {
+            --primary-color: #2563eb; /* Azul destaque */
+            --bg-color: #0f172a;      /* Fundo escuro */
+            --card-bg: #1e293b;       /* Fundo dos cartões */
+            --text-color: #f1f5f9;    /* Cor do texto */
+            --text-secondary: #94a3b8; /* Texto secundário */
+        }
+
+        /* --- RESET BÁSICO --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- HEADER / NAV --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo { font-weight: 700; font-size: 1.5rem; }
+        .social-link { font-size: 1.5rem; color: var(--text-color); }
+        .social-link:hover { color: var(--primary-color); }
+
+        /* --- HERO SECTION (Apresentação) --- */
+        .hero {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            text-align: center;
+            padding: 60px 5%;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Estilos da Imagem de Perfil */
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .hero-content h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .hero-content h1 span { color: var(--primary-color); }
+        .hero-content p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px auto; }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .btn:hover { background-color: #1d4ed8; transform: translateY(-2px); }
+
+        /* --- SEÇÃO SOBRE --- */
+        .about {
+            background-color: var(--card-bg);
+            padding: 60px 5%;
+            text-align: center;
+        }
+        .section-title { margin-bottom: 40px; font-size: 2rem; }
+        .about-text { max-width: 800px; margin: 0 auto; color: var(--text-secondary); }
+
+        /* --- PORTFÓLIO GRID --- */
+        .portfolio {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
+        
+        /* Placeholder da imagem do projeto */
+        .card-img {
+            width: 100%;
+            height: 200px;
+            background-color: #334155; /* Cor cinza caso não tenha imagem */
+            object-fit: cover;
+        }
+        
+        .card-content { padding: 20px; }
+        .card-content h3 { margin-bottom: 10px; }
+        .card-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; }
+        .card-link { color: var(--primary-color); font-weight: 600; font-size: 0.9rem; }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* Responsividade para telas maiores (Desktop) */
+        @media (min-width: 768px) {
+            .hero {
+                flex-direction: row;
+                text-align: left;
+                justify-content: space-between;
+            }
+            .hero-content p { margin: 0 0 30px 0; }
+            .hero-content h1 { font-size: 3.5rem; }
+            .profile-img { width: 300px; height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GL.</div>
+        <a href="https://github.com/gabriellinn" target="_blank" class="social-link" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hello, I am<br><span>Gabriel Linn</span></h1>
+            <p>Developer passionate about building efficient solutions and optimizing projects.</p>
+            <a href="#portfolio" class="btn">My Projects</a>
+        </div>
+        <img src="images/gabriel.JPEG" alt="Foto de Gabriel Linn" class="profile-img">
+    </section>
+
+    <section class="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-text">
+            <p>
+               I am a developer focused on systems development and problem-solving. With a background in Back-end, I constantly seek to learn new technologies and apply them to real-world projects. Currently, I am honing my skills in C# and ERP development.   
+            </p>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <h2 class="section-title" style="text-align: center;">Meus Projetos</h2>
+        
+        <div class="grid">
+            <article class="card">
+                <img src="https://via.placeholder.com/400x250" alt="Projeto 1" class="card-img">
+                <div class="card-content">
+                    <h3>Nome do Projeto 1</h3>
+                    <p>Uma breve descrição do que este sistema faz, as tecnologias usadas e o problema que ele resolveu.</p>
+                    <a href="#" class="card-link">Ver no GitHub &rarr;</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://via.placeholder.com/400x250" alt="Projeto 2" class="card-img">
+                <div class="card-content">
+                    <h3>Nome do Projeto 2</h3>
+                    <p>Descrição concisa do segundo projeto. Destaque as funcionalidades principais.</p>
+                    <a href="#" class="card-link">Acessar Demo &rarr;</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://via.placeholder.com/400x250" alt="Projeto 3" class="card-img">
+                <div class="card-content">
+                    <h3>Nome do Projeto 3</h3>
+                    <p>Descrição do terceiro projeto. Pode ser um link para um site ao vivo ou repositório.</p>
+                    <a href="#" class="card-link">Ver Detalhes &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy;2025 Gabriel Linn. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
