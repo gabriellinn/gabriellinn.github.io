@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* --- VARIÁVEIS DE COR (Edite aqui para mudar o tema) --- */
+        /* --- VARIÁVEIS DE COR --- */
         :root {
-            --primary-color: #2563eb; /* Azul destaque */
-            --bg-color: #0f172a;      /* Fundo escuro */
-            --card-bg: #1e293b;       /* Fundo dos cartões */
-            --text-color: #f1f5f9;    /* Cor do texto */
-            --text-secondary: #94a3b8; /* Texto secundário */
+            --primary-color: #2563eb;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f1f5f9;
+            --text-secondary: #94a3b8;
         }
 
         /* --- RESET BÁSICO --- */
@@ -38,10 +38,10 @@
             margin: 0 auto;
         }
         .logo { font-weight: 700; font-size: 1.5rem; }
-        .social-link { font-size: 1.5rem; color: var(--text-color); }
-        .social-link:hover { color: var(--primary-color); }
+        
+        /* (Removemos os estilos antigos do header-socials aqui) */
 
-        /* --- HERO SECTION (Apresentação) --- */
+        /* --- HERO SECTION --- */
         .hero {
             display: flex;
             flex-direction: column-reverse;
@@ -53,7 +53,6 @@
             margin: 0 auto;
         }
         
-        /* Estilos da Imagem de Perfil */
         .profile-img {
             width: 200px;
             height: 200px;
@@ -67,6 +66,14 @@
         .hero-content h1 span { color: var(--primary-color); }
         .hero-content p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px auto; }
         
+        /* NOVO: Container para Botão + Ícones */
+        .hero-actions {
+            display: flex;
+            align-items: center;     /* Alinha verticalmente no centro */
+            justify-content: center; /* Centraliza horizontalmente (Mobile) */
+            gap: 25px;               /* Espaço entre botão e ícones */
+        }
+
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -77,11 +84,16 @@
         }
         .btn:hover { background-color: #1d4ed8; transform: translateY(-2px); }
 
+        /* Estilo dos ícones na Hero Section */
+        .social-link { font-size: 1.8rem; color: var(--text-secondary); }
+        .social-link:hover { color: var(--primary-color); transform: translateY(-2px); display: inline-block; }
+
         /* --- SEÇÃO SOBRE --- */
         .about {
             background-color: var(--card-bg);
             padding: 60px 5%;
             text-align: center;
+            margin-top: 40px; /* Pequeno ajuste de espaço */
         }
         .section-title { margin-bottom: 40px; font-size: 2rem; }
         .about-text { max-width: 800px; margin: 0 auto; color: var(--text-secondary); }
@@ -106,11 +118,10 @@
         }
         .card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
         
-        /* Placeholder da imagem do projeto */
         .card-img {
             width: 100%;
             height: 200px;
-            background-color: #334155; /* Cor cinza caso não tenha imagem */
+            background-color: #334155;
             object-fit: cover;
         }
         
@@ -128,7 +139,7 @@
             border-top: 1px solid #1e293b;
         }
 
-        /* Responsividade para telas maiores (Desktop) */
+        /* Responsividade */
         @media (min-width: 768px) {
             .hero {
                 flex-direction: row;
@@ -138,6 +149,9 @@
             .hero-content p { margin: 0 0 30px 0; }
             .hero-content h1 { font-size: 3.5rem; }
             .profile-img { width: 300px; height: 300px; }
+            
+            /* NOVO: Alinha o grupo de botões à esquerda no Desktop */
+            .hero-actions { justify-content: flex-start; }
         }
     </style>
 </head>
@@ -145,16 +159,24 @@
 
     <header>
         <div class="logo">GL.</div>
-        <a href="https://github.com/gabriellinn" target="_blank" class="social-link" title="GitHub">
-            <i class="fab fa-github"></i>
-        </a>
-    </header>
+        </header>
 
     <section class="hero">
         <div class="hero-content">
             <h1>Hello, I am<br><span>Gabriel Linn</span></h1>
             <p>Developer passionate about building efficient solutions and optimizing projects.</p>
-            <a href="#portfolio" class="btn">My Projects</a>
+            
+            <div class="hero-actions">
+                <a href="#portfolio" class="btn">My Projects</a>
+                
+                <a href="https://github.com/gabriellinn" target="_blank" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/gabriellinn/" target="_blank" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+
         </div>
         <img src="images/profile-picture.JPEG" alt="Foto de Gabriel Linn" class="profile-img">
     </section>
@@ -176,7 +198,7 @@
                 <img src="images/menu.png" alt="Projeto 1" class="card-img">
                 <div class="card-content">
                     <h3>Child Welfare Case Management System</h3>
-                    <p>I made a software to manage child welfare cases from the city of Panambi. In this system, i used React.js, Node.js and MySQL</p>
+                    <p>Our school team made a software to manage child welfare cases from the city of Panambi. In this system, We used React.js, Node.js and MySQL</p>
                     <a href="https://conselho-tutelar-front.vercel.app/" class="card-link">See on Vercel &rarr;</a>
                 </div>
             </article>
@@ -189,8 +211,6 @@
                     <a href="https://imobiliario-eight.vercel.app/" class="card-link">See on Vercel &rarr;</a>
                 </div>
             </article>
-
-            
         </div>
     </section>
 
