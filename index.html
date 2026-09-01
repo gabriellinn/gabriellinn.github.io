@@ -40,6 +40,28 @@
         }
         .logo { font-weight: 700; font-size: 1.8rem; letter-spacing: -1px; color: var(--primary-color); }
         
+        /* Language Selector Styles */
+        .lang-select {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .lang-select:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .lang-select option {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+
         .hero {
             display: flex;
             flex-direction: column-reverse;
@@ -120,16 +142,6 @@
             border: 1px solid var(--primary-color);
         }
         .btn:hover { background-color: var(--primary-dark); border-color: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3); }
-
-        .btn-whatsapp {
-            background-color: #25D366;
-            border-color: #25D366;
-        }
-        .btn-whatsapp:hover {
-            background-color: #128C7E;
-            border-color: #128C7E;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-        }
 
         .social-link { 
             font-size: 1.5rem; 
@@ -280,16 +292,20 @@
 
     <header>
         <div class="logo">GL.</div>
+        <select id="lang-select" class="lang-select">
+            <option value="en">English</option>
+            <option value="pt">Português</option>
+        </select>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Hello, I am<br><span>Gabriel Linn</span></h1>
-            <p>Developer passionate about building efficient solutions and optimizing projects.</p>
+            <h1 class="translate" data-en="Hello, I am<br><span>Gabriel Linn</span>" data-pt="Olá, eu sou<br><span>Gabriel Linn</span>">Hello, I am<br><span>Gabriel Linn</span></h1>
+            <p class="translate" data-en="Developer passionate about building efficient solutions and optimizing projects." data-pt="Desenvolvedor apaixonado por construir soluções eficientes e otimizar projetos.">Developer passionate about building efficient solutions and optimizing projects.</p>
             
             <div class="hero-actions">
-                <a href="#portfolio" class="btn">My Projects</a>
-                <a href="https://wa.me/55NUMERO" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="#portfolio" class="btn translate" data-en="My Projects" data-pt="Meus Projetos">My Projects</a>
+                <a href="https://wa.me/55996799827" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
                 
                 <a href="https://github.com/gabriellinn" target="_blank" class="social-link" title="GitHub">
                     <i class="fab fa-github"></i>
@@ -308,9 +324,9 @@
     </section>
 
     <section class="section-container">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title translate" data-en="About Me" data-pt="Sobre Mim">About Me</h2>
         <div class="about-text">
-            <p>
+            <p class="translate" data-en="I am a developer focused on systems development and problem-solving. With a background in Back-end, I constantly seek to learn new technologies and apply them to real-world projects. Currently, I am honing my skills in C# and ERP development." data-pt="Sou um desenvolvedor focado no desenvolvimento de sistemas e resolução de problemas. Com experiência em Back-end, busco constantemente aprender novas tecnologias e aplicá-las a projetos reais. Atualmente, estou aprimorando minhas habilidades em C# e desenvolvimento de ERP.">
                I am a developer focused on systems development and problem-solving. With a background in Back-end, I constantly seek to learn new technologies and apply them to real-world projects. Currently, I am honing my skills in C# and ERP development.   
             </p>
         </div>
@@ -318,13 +334,13 @@
 
     <!-- NEW SECTION: EXPERIENCE -->
     <section class="section-container">
-        <h2 class="section-title">Experience</h2>
+        <h2 class="section-title translate" data-en="Experience" data-pt="Experiência">Experience</h2>
         <div class="timeline">
             
             <div class="timeline-item">
-                <div class="timeline-date">2026 - Present</div>
+                <div class="timeline-date translate" data-en="2026 - Present" data-pt="2026 - Presente">2026 - Present</div>
                 <div class="timeline-content">
-                    <h3>Software Developer</h3>
+                    <h3 class="translate" data-en="Software Developer" data-pt="Desenvolvedor de Software">Software Developer</h3>
                     <h4>Saur Equipamentos S.A</h4>
                     <p></p>
                 </div>
@@ -335,23 +351,23 @@
 
     <!-- NEW SECTION: EDUCATION -->
     <section class="section-container">
-        <h2 class="section-title">Education</h2>
+        <h2 class="section-title translate" data-en="Education" data-pt="Formação Acadêmica">Education</h2>
         <div class="timeline">
             
             <div class="timeline-item">
                 <div class="timeline-date">2026 - 2030</div>
                 <div class="timeline-content">
-                    <h3>Bachelor's in Software Engineering</h3>
+                    <h3 class="translate" data-en="Bachelor's in Software Engineering" data-pt="Bacharelado em Engenharia de Software">Bachelor's in Software Engineering</h3>
                     <h4>Universidade Regional do Noroeste do Estado do Rio Grande do Sul (UNIJUÍ)</h4>
-                    <p>Focused on software engineering, data structures, and algorithms.</p>
+                    <p class="translate" data-en="Focused on software engineering, data structures, and algorithms." data-pt="Focado em engenharia de software, estruturas de dados e algoritmos.">Focused on software engineering, data structures, and algorithms.</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-date">2023 - 2025</div>
                 <div class="timeline-content">
-                    <h3>Technician in Computer Science</h3>
+                    <h3 class="translate" data-en="Technician in Computer Science" data-pt="Técnico em Informática">Technician in Computer Science</h3>
                     <h4>Instituto Federal Farroupilha (IFFar)</h4>
-                    <p>Focused on software engineering, learned the basics of HTML, CSS, PHP, Databases SQL.</p>
+                    <p class="translate" data-en="Focused on software engineering, learned the basics of HTML, CSS, PHP, Databases SQL." data-pt="Focado em engenharia de software, aprendi o básico de HTML, CSS, PHP e Banco de Dados SQL.">Focused on software engineering, learned the basics of HTML, CSS, PHP, Databases SQL.</p>
                 </div>
             </div>
 
@@ -359,23 +375,48 @@
     </section>
 
     <section id="portfolio" class="section-container">
-        <h2 class="section-title">My Projects</h2>
+        <h2 class="section-title translate" data-en="My Projects" data-pt="Meus Projetos">My Projects</h2>
         
         <div class="grid">
             <article class="card">
                 <img src="images/menu.png" alt="Child Welfare Case Management System" class="card-img">
                 <div class="card-content">
-                    <h3>Child Welfare Case Management System</h3>
-                    <p>Our school team made a software to manage child welfare cases from the city of Panambi. In this system, we used React.js, Node.js and MySQL.</p>
-                    <a href="https://conselho-tutelar-front.vercel.app/" class="card-link" target="_blank">See on Vercel <i class="fas fa-arrow-right"></i></a>
+                    <h3 class="translate" data-en="Child Welfare Case Management System" data-pt="Sistema de Gestão para Conselho Tutelar">Child Welfare Case Management System</h3>
+                    <p class="translate" data-en="Our school team made a software to manage child welfare cases from the city of Panambi. In this system, we used React.js, Node.js and MySQL." data-pt="Nossa equipe da escola criou um software para gerenciar casos do conselho tutelar da cidade de Panambi. Neste sistema, usamos React.js, Node.js e MySQL.">Our school team made a software to manage child welfare cases from the city of Panambi. In this system, we used React.js, Node.js and MySQL.</p>
+                    <a href="https://conselho-tutelar-front.vercel.app/" class="card-link translate" target="_blank" data-en='See on Vercel <i class="fas fa-arrow-right"></i>' data-pt='Ver na Vercel <i class="fas fa-arrow-right"></i>'>See on Vercel <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Gabriel Linn. All rights reserved.</p>
+        <p class="translate" data-en="&copy; 2026 Gabriel Linn. All rights reserved." data-pt="&copy; 2026 Gabriel Linn. Todos os direitos reservados.">&copy; 2026 Gabriel Linn. All rights reserved.</p>
     </footer>
 
+    <script>
+        const langSelect = document.getElementById('lang-select');
+        const translateElements = document.querySelectorAll('.translate');
+
+        // Check if there is a saved language in localStorage
+        const savedLang = localStorage.getItem('siteLang') || 'en';
+        langSelect.value = savedLang;
+        updateLanguage(savedLang);
+
+        langSelect.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            updateLanguage(lang);
+            localStorage.setItem('siteLang', lang);
+        });
+
+        function updateLanguage(lang) {
+            document.documentElement.lang = lang;
+            translateElements.forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    el.innerHTML = text;
+                }
+            });
+        }
+    </script>
 </body>
 </html>
