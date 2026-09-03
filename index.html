@@ -31,21 +31,47 @@
         ul { list-style: none; }
 
         header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 5%;
+            padding: 20px 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
+        
         .logo { font-weight: 700; font-size: 1.8rem; letter-spacing: -1px; color: var(--primary-color); }
         
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .nav-btn {
+            font-weight: 600;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .nav-btn:hover {
+            color: var(--primary-color);
+        }
+
         /* Language Selector Styles */
         .lang-select {
             background-color: rgba(255, 255, 255, 0.05);
             color: var(--text-color);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px 12px;
+            padding: 10px 16px;
+            width: 180px;
             border-radius: 4px;
             font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
@@ -271,12 +297,17 @@
         .card-link:hover { color: var(--primary-dark); }
 
         footer {
+            background-color: var(--card-bg);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 60px;
+        }
+        .footer-content {
             text-align: center;
-            padding: 40px;
+            padding: 40px 5%;
             color: var(--text-secondary);
             font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         @media (min-width: 768px) {
@@ -291,20 +322,28 @@
 <body>
 
     <header>
-        <div class="logo">GL.</div>
-        <select id="lang-select" class="lang-select">
-            <option value="en">English</option>
-            <option value="pt">Português</option>
-        </select>
+        <div class="header-content">
+            <div class="logo">GL.</div>
+            <div class="nav-links">
+                <a href="#portfolio" class="nav-btn translate" data-en="My Projects" data-pt="Meus Projetos">My Projects</a>
+                <select id="lang-select" class="lang-select">
+                    <option value="en">English</option>
+                    <option value="pt">Português</option>
+                </select>
+            </div>
+        </div>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1 class="translate" data-en="Hello, I am<br><span>Gabriel Linn</span>" data-pt="Olá, eu sou<br><span>Gabriel Linn</span>">Hello, I am<br><span>Gabriel Linn</span></h1>
-            <p class="translate" data-en="Developer passionate about building efficient solutions and optimizing projects." data-pt="Desenvolvedor apaixonado por construir soluções eficientes e otimizar projetos.">Developer passionate about building efficient solutions and optimizing projects.</p>
+            <h1 class="translate" data-en="Hello, I am<br><span>Gabriel Linn</span>" data-pt="Olá, eu sou o<br><span>Gabriel Linn</span>">Hello, I am<br><span>Gabriel Linn</span></h1>
+            <p class="translate" data-en="Developer passionate about building efficient solutions and optimizing projects." data-pt="Desenvolvedor em formação capacitado por construir soluções eficientes e otimizar projetos.">Developer passionate about building efficient solutions and optimizing projects.</p>
             
             <div class="hero-actions">
-                <a href="#portfolio" class="btn translate" data-en="My Projects" data-pt="Meus Projetos">My Projects</a>
+                <a href="documents/curriculum.pdf" target="_blank" class="btn">
+                    <i class="fas fa-file-pdf"></i>
+                    <span class="translate" data-en="My Resume" data-pt="Meu Currículo">My Resume</span>
+                </a>
                 <a href="https://wa.me/55996799827" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
                 
                 <a href="https://github.com/gabriellinn" target="_blank" class="social-link" title="GitHub">
@@ -379,9 +418,9 @@
         
         <div class="grid">
             <article class="card">
-                <img src="images/menu.png" alt="Child Welfare Case Management System" class="card-img">
+                <img src="images/menu.jpeg" alt="Child Welfare Case Management System" class="card-img">
                 <div class="card-content">
-                    <h3 class="translate" data-en="Child Welfare Case Management System" data-pt="Sistema de Gestão para Conselho Tutelar">Child Welfare Case Management System</h3>
+                    <h3 class="translate" data-en="Child Welfare Case Management System" data-pt="Sistema de Registro e Acompanhamento de Menores para o Conselho Tutelar do Município de Panambi">Child Welfare Case Management System</h3>
                     <p class="translate" data-en="Our school team made a software to manage child welfare cases from the city of Panambi. In this system, we used React.js, Node.js and MySQL." data-pt="Nossa equipe da escola criou um software para gerenciar casos do conselho tutelar da cidade de Panambi. Neste sistema, usamos React.js, Node.js e MySQL.">Our school team made a software to manage child welfare cases from the city of Panambi. In this system, we used React.js, Node.js and MySQL.</p>
                     <a href="https://conselho-tutelar-front.vercel.app/" class="card-link translate" target="_blank" data-en='See on Vercel <i class="fas fa-arrow-right"></i>' data-pt='Ver na Vercel <i class="fas fa-arrow-right"></i>'>See on Vercel <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -390,7 +429,9 @@
     </section>
 
     <footer>
-        <p class="translate" data-en="&copy; 2026 Gabriel Linn. All rights reserved." data-pt="&copy; 2026 Gabriel Linn. Todos os direitos reservados.">&copy; 2026 Gabriel Linn. All rights reserved.</p>
+        <div class="footer-content">
+            <p class="translate" data-en="&copy; 2026 Gabriel Linn. All rights reserved." data-pt="&copy; 2026 Gabriel Linn. Todos os direitos reservados.">&copy; 2026 Gabriel Linn. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
